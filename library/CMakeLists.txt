@@ -158,6 +158,9 @@ endif(USE_STATIC_MBEDTLS_LIBRARY)
 if(USE_SHARED_MBEDTLS_LIBRARY)
     add_library(mbedcrypto SHARED ${src_crypto})
     set_target_properties(mbedcrypto PROPERTIES VERSION 2.17.0 SOVERSION 3)
+    if(MSVC)
+        set_target_properties(mbedcrypto PROPERTIES LINK_FLAGS /DEF:"${CMAKE_CURRENT_SOURCE_DIR}/mbedcrypto.def")
+    endif(MSVC)
     target_link_libraries(mbedcrypto ${libs})
     target_include_directories(mbedcrypto
         PUBLIC ${MBEDTLS_DIR}/include/
