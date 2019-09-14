@@ -561,6 +561,8 @@ mbedtls_set_alarm
 mbedtls_timing_set_delay
 mbedtls_timing_get_delay
 mbedtls_timing_self_test
+mbedtls_timing_hardclock
+mbedtls_timing_alarmed
 
 ; version.h
 mbedtls_version_get_string
